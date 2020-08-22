@@ -69,15 +69,16 @@ public class BoardDAO_Spring implements BoardDAO{
 
 	@Override
 	public BoardVO getBoard(int boardno) {
+		 
+		String sql2 = "update board set viewcount=(select viewcount+1 from board where boardno="+boardno
+		 		+ ") where boardno="+boardno;
+		template.update(sql2);
+		
 		String sql = "select * from board where boardno = ?";
 		BoardVO vo = null;
 		 vo = template.queryForObject(sql, 
                                      new Object[] {boardno} ,
                                      new BoardRowMapper());
-		 
-		 String sql2 = "update board set viewcount=(select viewcount+1 from board where boardno="+boardno
-			 		+ ") where boardno="+boardno;
-		 template.update(sql2);
 		
 		 return vo;
 	}
