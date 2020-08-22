@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 import biz.user.vo.UserVO;
 
-@Component("spring")
+@Component("userSpring")
 public class UserDAO_Spring implements UserDAO{
 
 	@Autowired
