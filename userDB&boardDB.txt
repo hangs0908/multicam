@@ -1,0 +1,20 @@
+create table userinfo (
+	userid varchar2(15) primary key,
+	username varchar2(20),
+	userpwd varchar2(10),
+	email varchar2(50),
+	phone varchar2(15),
+	address varchar2(100),
+	userdate date default sysdate
+);
+
+
+create table board
+(
+    boardno   number(10) primary key,
+    title     varchar2(100)  not null,
+    content   varchar2(4000) not null,
+    writer varchar2(15) references userinfo(userid),
+    boarddate date   default sysdate,
+    viewcount   number(10)
+)
