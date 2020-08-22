@@ -16,8 +16,6 @@ import biz.user.vo.UserVO;
 public class UserServiceImpl implements UserService{
 
 	@Autowired
-	@Qualifier("spring")
-	//@Resource(name = "jdbc")
 	UserDAO dao;
 	
 	public UserServiceImpl() {}
