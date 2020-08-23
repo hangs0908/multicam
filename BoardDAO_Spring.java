@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 import biz.board.vo.BoardVO;
 
-@Component("boardSpring")
+@Component("boardspring")
 public class BoardDAO_Spring implements BoardDAO{
 
 	@Autowired
