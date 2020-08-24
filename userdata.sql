@@ -1,37 +1,17 @@
-create table userinfo (
-	userid varchar2(15) primary key,
-	username varchar2(20),
-	userpwd varchar2(10),
-	email varchar2(50),
-	phone varchar2(15),
-	address varchar2(100),
-	userdate date default sysdate
-);
-
-
-create table board
-(
-    boardno   number(10) primary key,
-    title     varchar2(100)  not null,
-    content   varchar2(4000) not null,
-    writer varchar2(15) references userinfo(userid),
-    boarddate date   default sysdate,
-    viewcount   number(10)
-)
 
 desc userinfo;
 select * from userinfo;
 
-insert into userinfo values ('dkdl8888', 'T¾øe¸¼ÀºI','erer!23232','ii333@daum.net', '010-2323-4444' ,'¼­¿ï½Ã °­¼­±¸');
-insert into userinfo values ('sldms1221', '¼ÕÈï¹Î', 'tlfj@131','like444@daum.net', '010-1111-4444' ,'¼­¿ï½Ã °­ºÏ±¸');
-insert into userinfo values ('boom9898', 'Àå¹Ì¿©½Å','anjgka123!', 'love2388@daum.net', '010-2323-4455' ,'¼­¿ï½Ã Á¾·Î±¸');
-insert into userinfo values ('gma3333', '»Ç´ëÀÛ»ì', 'alal#999','dktk@naver.com', '010-9797-3434' ,'´ëÀü À¯¼º±¸');
-insert into userinfo values ('hmmm22', 'simonD', 'dkssud@333','simon@naver.com', '010-5555-3543' ,'ÃæºÏ ¿µµ¿±º');
-insert into userinfo values ('zzizon52', 'Esens', 'qkqh9090!@', 'esens@naver.com', '' ,'ºÎ»ê ÇØ¿î´ë±¸');
-insert into userinfo values ('dfewww22', 'ÆĞ¼Ç¿Õ', 'yumyum1!', 'king@yahoo.com', '010-3425-4232' ,'¼­¿ï½Ã °­¼­±¸');
-insert into userinfo values ('hanana8944', 'S2·¯ºêÃµ»çS2','sjssjs9*', 'angel@naver.com', '010-5252-2221' ,'ºÎ»ê ¼­¸é');
-insert into userinfo values ('coding554', 'zlÁ¸ÄÚµù', 'nyo@3322','coder@naver.com', '010-6875-3423' ,'¼­¿ï µ¿ÀÛ±¸');
-insert into userinfo values ('pizzalover0101', 'Ä¡Å²³ª¶óÇÇÀÚ°øÁÖ', 'pilot3#', 'pizza@naver.com', '010-5555-1111' ,'ºÎ»ê ¼­¸é');
+insert into userinfo values ('dkdl8888', 'Tì—†eë§‘ì€I','erer!23232','ii333@daum.net', '010-2323-4444' ,'ì„œìš¸ì‹œ ê°•ì„œêµ¬');
+insert into userinfo values ('sldms1221', 'ì†í¥ë¯¼', 'tlfj@131','like444@daum.net', '010-1111-4444' ,'ì„œìš¸ì‹œ ê°•ë¶êµ¬');
+insert into userinfo values ('boom9898', 'ì¥ë¯¸ì—¬ì‹ ','anjgka123!', 'love2388@daum.net', '010-2323-4455' ,'ì„œìš¸ì‹œ ì¢…ë¡œêµ¬');
+insert into userinfo values ('gma3333', 'ë½€ëŒ€ì‘ì‚´', 'alal#999','dktk@naver.com', '010-9797-3434' ,'ëŒ€ì „ ìœ ì„±êµ¬');
+insert into userinfo values ('hmmm22', 'simonD', 'dkssud@333','simon@naver.com', '010-5555-3543' ,'ì¶©ë¶ ì˜ë™êµ°');
+insert into userinfo values ('zzizon52', 'Esens', 'qkqh9090!@', 'esens@naver.com', '' ,'ë¶€ì‚° í•´ìš´ëŒ€êµ¬');
+insert into userinfo values ('dfewww22', 'íŒ¨ì…˜ì™•', 'yumyum1!', 'king@yahoo.com', '010-3425-4232' ,'ì„œìš¸ì‹œ ê°•ì„œêµ¬');
+insert into userinfo values ('hanana8944', 'S2ëŸ¬ë¸Œì²œì‚¬S2','sjssjs9*', 'angel@naver.com', '010-5252-2221' ,'ë¶€ì‚° ì„œë©´');
+insert into userinfo values ('coding554', 'zlì¡´ì½”ë”©', 'nyo@3322','coder@naver.com', '010-6875-3423' ,'ì„œìš¸ ë™ì‘êµ¬');
+insert into userinfo values ('pizzalover0101', 'ì¹˜í‚¨ë‚˜ë¼í”¼ìê³µì£¼', 'pilot3#', 'pizza@naver.com', '010-5555-1111' ,'ë¶€ì‚° ì„œë©´');
 
-select * from userinfo
+
 
