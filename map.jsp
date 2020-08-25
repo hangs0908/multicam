@@ -8,8 +8,8 @@
 <head>
 
 <title>지도보기</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maps.google.com/maps/api/js?&sensor=false"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+<!-- <script src="https://maps.google.com/maps/api/js?&sensor=false"></script> -->
 
 </head>
 
@@ -62,8 +62,8 @@
 	      google.maps.event.addListener(marker, 'click', (function(marker, i) {
 	           let page = locations[i][3];
 	           return function() {
-			   window.open(page, "_blank")
-	             	   //window.location.href = page; 
+	        	 window.open(page, "_blank")
+	             //window.location.href = page; 
 	           }
 	         })(marker, i));
 	    }
