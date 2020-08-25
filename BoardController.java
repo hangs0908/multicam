@@ -23,13 +23,14 @@ public class BoardController {
 	BoardService service;
 	
 	@RequestMapping(value = "/viewboard.do", method = RequestMethod.GET)
-	public String viewboard(@RequestParam("boardno") int boardno,
+	public String viewboard(@RequestParam("boardno") int boardno, @RequestParam("boardcount") int boardcount,
 						HttpServletRequest req) {
 		BoardVO vo = service.getBoard(boardno);
 		List<BoardVO> list = new ArrayList();
 		list.add(vo);
 		req.setAttribute("boardlist", list);
 		req.setAttribute("board", vo);
+		req.setAttribute("boardcount", boardcount);
 		return "book/board_view";
 	}
 	
@@ -64,7 +65,10 @@ public class BoardController {
 	@RequestMapping(value = "/boardlist.do", method = RequestMethod.GET)
 	public ModelAndView list() {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("boardlist",service.getBoardList());
+		List<BoardVO> list = service.getBoardList();
+		int length = list.size();
+		mav.addObject("boardlist",list);
+		mav.addObject("length", length);
 		mav.setViewName("book/board_list");
 		return mav;
 	}
