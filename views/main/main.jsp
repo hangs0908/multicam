@@ -8,11 +8,13 @@
 	
    	<!-- Header --> 
    	<header class="masthead text-white text-center">
+   	<br>
  	<div class="container">
     	<div class="row">
         	<div class="col-xl-9 mx-auto">
             	<h3 class="mb-5"> 공공 도서관의 도서 검색 가능한 사이트입니다.</h3>
             </div>
+            <br>
             <div class="col-md-10 col-lg-10 cl-xl-9 mx-auto">
             	<form name="searchform" method="post" action="${pageContext.request.contextPath}/book.do">
 	                <div class="form-row">
@@ -38,7 +40,7 @@
                      	<div class="col-md-20 col-md-2">
                        		<select  id="searchOption2" class="form-control form-control-lg" aria-controls="dataTable" >
                            		<option value="title">도서제목</option>
-	                           	<option value="contents">도서내용</option>
+	                           	<option value="contents">출판사</option>
 	                           	<option value="author">저자</option>
                         	</select>
                     	</div>
@@ -48,7 +50,9 @@
                             <input type="text" id="search" name="search" class="form-control form-control-lg" placeholder="도서명을 입력하세요...">
                        	</div>
                         <div class="col-md-20 col-md-2">
-                            <button type="submit" id="btnSearch" class="btn btn-block btn-lg btn-primary" onclick=""> 검색 </button>
+                            <button type="submit" id="btnSearch" class="btn btn-block btn-lg btn-primary" onclick=""> 
+                            	<img class="mb-2" src="${pageContext.request.contextPath}/resources/img/search.png" alt="" width="20" height="20">  
+                            </button>
                        	</div>
            			</div>
                	</form>

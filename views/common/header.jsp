@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 
+ 
 	<!--  공통 -->
 	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">   	   	
@@ -20,12 +21,12 @@
  	<!--  main.jsp -->
  	
  	<!-- list.jsp -->
-    	<script src="${pageContext.request.contextPath}/resources/js/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-    	<script src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    	<script src="${pageContext.request.contextPath}/resources/js/table.js"></script>
-    	<script src="${pageContext.request.contextPath}/resources/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-    	<script src="${pageContext.request.contextPath}/resources/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-    	<script src="${pageContext.request.contextPath}/resources/js/datatables-demo.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/table.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/datatables-demo.js"></script>
 	
 	<!-- map.jsp -->
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -33,3 +34,15 @@
 	<!-- signup.jsp-->
 	<link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/checkout/">
 
+
+
+
+	
+
+
+
+
+	
+	
+	
+	  

@@ -9,7 +9,7 @@
 <body class="bg-light">
 	<div class="container">
 		<div class="py-5 text-center">
-			<img class="mb-4" src="${pageContext.request.contextPath}/resources/img/bootstrap-solid.svg" alt="" width="72" height="72">
+			<img class="mb-4" src="${pageContext.request.contextPath}/resources/img/bluelogo.png" alt="" width="72" height="72">
 	    	<h2 class="text-black text-center"><strong>회원가입</strong></h2>
 	   	</div>
         <hr/>

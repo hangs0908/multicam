@@ -2,23 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<%@include file="/WEB-INF/views/common/header.jsp"%> 
-<script>
-   function cancel() {
-      if (confirm('취소하시겠습니까? 작성된 글은 저장되지 않습니다.') == true) {
-         location.href = '${pageContext.request.contextPath}/boardlist.do'
-      }
-   }
-   $(function() {
-      $('#content').keyup(function(e) {
-         var content = $(this).val();
-         $('#counter').html(content.length + '/4000');
-      });
-      $('#content').keyup();
-   });
-</script>
-</head>
+<%@include file="/WEB-INF/views/common/header.jsp"%>  
 <body>
 	<!-- Navigation -->
    	<%@include file="/WEB-INF/views/common/navbar.jsp"%>  
@@ -26,29 +10,33 @@
 	<div class="container">
 		<br>
 		<br>
-	   	<h2 class="text-black text-center"><strong>리뷰 작성</strong></h2>
+		<br>
+	   	<h2 class="text-black text-center"><strong>게시글 작성</strong></h2>
 
 	   	<form class="form-horizontal" id="writeform" name="writeform" method="post" action="${pageContext.request.contextPath}/writeboard.do">
-	    	<input type ="hidden" id="boardno" name="boardno" value="${boardno}"/>
+	    	<input type ="hidden" id="boardno" name="boardno" value="${board.boardno}"/>
 	    	<div>
 	        	<label><strong>제목</strong></label>
-	            <input type="text" class="form-control" id="title" name="title" value="${title}">
+	            <input type="text" class="form-control" id="title" name="title" value="${board.title}">
 	         </div>
 	         <div>
 	            <label><strong>내용</strong></label>
-	            <textarea maxlength="4000" class="form-control" id="content" name="content" rows="10">${content}</textarea>
-	            <span id="counter">###</span>
+	            <textarea class="form-control" id="content" name="content" rows="10">${board.content}</textarea>
 	         </div>
 	         <br>
 			<p align = "right">
-		        <button type="submit" class="btn btn-primary" form="writeform">저장</button>
-		        <button type="button" class="btn btn-primary" onclick="return cancel()">취소</button>
-		        <button type="button" class="btn btn-primary" onclick="location.href ='${pageContext.request.contextPath}/boardlist.do'">목록</button>               
+		        <button type="submit" class="btn btn-primary" form="writeform"><strong>저장</strong></button>
+		        <button type="button" class="btn btn-primary" onclick="location.href ='${pageContext.request.contextPath}/boardlist.do'"><strong>취소</strong></button>
+		        <button type="button" class="btn btn-primary" onclick="location.href ='${pageContext.request.contextPath}/boardlist.do'"><strong>목록</strong></button>               
 	       	</p>
    		</form>
 	</div>
-
-   <%@include file="/WEB-INF/views/common/footer.jsp"%> 
+	<br>
+	<br>
+	<br>
+   	<%@include file="/WEB-INF/views/common/footer.jsp"%>   
+   
    
 </body>
-</html>  
+</html>
+   

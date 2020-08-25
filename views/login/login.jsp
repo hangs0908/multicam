@@ -30,7 +30,7 @@
 <body class="text-center">
 
 	<form class="form-signin" id="loginform" name="loginform" method="post" action="${pageContext.request.contextPath}/login.do">
-  		<img class="mb-4" src="${pageContext.request.contextPath}/resources/img/bootstrap-solid.svg" alt="" width="72" height="72">
+  		<img class="mb-4" src="${pageContext.request.contextPath}/resources/img/bluelogo.png" alt="" width="72" height="72">
   		
   		<h2 class="h3 mb-3 font-weight-normal"><strong>로그인</strong></h2>
   		

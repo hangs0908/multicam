@@ -55,6 +55,9 @@
 	<%@include file="/WEB-INF/views/common/navbar.jsp"%> 
 	
 	<div class="container">
+		<br>
+		<br>
+		<br>
 		<h2 class="text-center font-weight-normal"><strong>공공 도서관 위치</strong></h2>
 		<p class="text-center font-black font-weight-normal">마커 클릭시, 해당 사이트로 이동합니다.</p>
 		<br>

@@ -11,7 +11,9 @@
 	
 	<!-- Header - set the background image for the header in the line below -->
   	<header class="py-9 bg-image-full masthead" >
-    	   <img class="img-fluid d-block mx-auto" src="${pageContext.request.contextPath}/resources/img/bootstrap-solid.svg" alt="" width="72" height="72">
+  			<br>
+  			<br>
+    	   <img class="img-fluid d-block mx-auto" src="${pageContext.request.contextPath}/resources/img/bluelogo.png" alt="" width="72" height="72">
   	</header>
 
   	<!-- Content section -->
