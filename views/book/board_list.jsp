@@ -8,9 +8,12 @@
 	<%@include file="/WEB-INF/views/common/navbar.jsp"%> 
 	<div class="container">
 		<br>
+		<br>
+		<br>
 	    <!-- Page Content -->
 	    <h2 class="text-black text-center"><strong>독서 게시판</strong></h2>
 	   
+	   <br>
 	    <button type="button" class="btn btn-info" id = "wrbutton" style="float:right"
 	     onclick = "location.href ='${pageContext.request.contextPath}/writeboard.do'"><strong>게시글 쓰기</strong></button>
 	     <c:if test="${empty id}">
