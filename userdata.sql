@@ -1,6 +1,6 @@
-
-desc userinfo;
-select * from userinfo;
+ALTER TABLE USERINFO MODIFY(username varchar2(30));
+ALTER TABLE USERINFO MODIFY(userid varchar2(20));
+ALTER TABLE USERINFO MODIFY(userpwd varchar2(20));
 
 insert into userinfo (userid, username, userpwd, email, phone, address) values ('dkdl8888', 'T없e맑은I','erer!23232','ii333@daum.net', '010-2323-4444' ,'서울시 강서구');
 insert into userinfo (userid, username, userpwd, email, phone, address) values ('sldms1221', '손흥민', 'tlfj@131','like444@daum.net', '010-1111-4444' ,'서울시 강북구');
