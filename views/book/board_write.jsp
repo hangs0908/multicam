@@ -11,8 +11,7 @@
    $(function() {
       $('#content').keyup(function(e) {
          var content = $(this).val();
-         $(this).height(((content.split('\n').length + 1) * 1.5) + 'em');
-         $('#counter').html(content.length + '/5000');
+         $('#counter').html(content.length + '/4000');
       });
       $('#content').keyup();
    });
@@ -34,7 +33,7 @@
 	         </div>
 	         <div>
 	            <label><strong>내용</strong></label>
-	            <textarea class="form-control" id="content" name="content" rows="10">${content}</textarea>
+	            <textarea maxlength="4000" class="form-control" id="content" name="content" rows="10">${content}</textarea>
 	            <span id="counter">###</span>
 	         </div>
 	         <br>
