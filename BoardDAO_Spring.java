@@ -20,7 +20,7 @@ public class BoardDAO_Spring implements BoardDAO{
 	@Override
 	public int addBoard(BoardVO board) throws Exception {
 		String sql = 
-				"insert into userinfo (boardno, title, content, writer, viewcount) "+
+				"insert into board (boardno, title, content, writer, viewcount) "+
 						" values ((select nvl(max(boardno),0)+1 from board),?, ?, ?, 0)";
 				
 				return template.update(sql,
@@ -39,7 +39,7 @@ public class BoardDAO_Spring implements BoardDAO{
 
 	@Override
 	public int updateBoard(BoardVO board) {
-		String sql = "update board set title=?,content=? "
+		String sql = "update board set title=?,content=?"
 		 		+ " where  boardno  = ? ";
 
 		 return template.update(sql,
@@ -69,16 +69,15 @@ public class BoardDAO_Spring implements BoardDAO{
 
 	@Override
 	public BoardVO getBoard(int boardno) {
-		 
-		String sql2 = "update board set viewcount=(select viewcount+1 from board where boardno="+boardno
-		 		+ ") where boardno="+boardno;
-		template.update(sql2);
-		
 		String sql = "select * from board where boardno = ?";
 		BoardVO vo = null;
 		 vo = template.queryForObject(sql, 
                                      new Object[] {boardno} ,
                                      new BoardRowMapper());
+		 
+		 String sql2 = "update board set viewcount=(select viewcount+1 from board where boardno="+boardno
+			 		+ ") where boardno="+boardno;
+		 template.update(sql2);
 		
 		 return vo;
 	}
