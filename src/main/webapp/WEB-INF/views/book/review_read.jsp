@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@include file="/WEB-INF/views/common/header.jsp"%>  
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <body>
 	<!-- Navigation -->
 	<%@include file="/WEB-INF/views/common/navbar.jsp"%> 
@@ -15,37 +16,47 @@
 	    <table class="table">
 	    	<tr>
 		        <th width="100px"><strong>번호</strong></th>
-		        <td>1</td>
+		        <td>${board.boardno}</td>
 		        <th width="100px">조회수</th>
-		        <td>1</td>
+		        <td>${board.viewcount}</td>
 	       	</tr>
 	        <tr>
 	            <th>작성자</th>
-	            <td>홍길동</td>
+	            <td>${board.writer}</td>
 	            <th>작성일</th>
-	            <td>2020.00.00</td>
+	            <td>${board.boarddate}</td>
 	       	</tr>                  
 	       	<tr>
 	            <th>제목</th>
-	            <td colspan="3">독서 후기를 남깁니다!</td>
+	            <td colspan="3">${board.title}</td>
 	       	</tr>              
 	        <tr>
 	            <th>내용</th>
-	            <td colspan="3">~~~~~날짜에 ~~~~~~~ 책을 읽었는데 ~~~~~~~ 후기를 남깁니다~
-	                           		이 사이트에서 ~~~~~~~~~~~~~~ 했습니다.
-	                          	 ~~구에 있는 ~~~~~ 도서관~~~~ 읽었어요~~~~~~~~~ 
+	            <td colspan="3">${board.content}
 	            </td>
-	        </tr>                
+	        </tr>   
 	   	</table>
 	
 		<p align = "right">
-	        <button type="button" class="btn btn-primary" onclick="">수정</button>
-	        <button type="button" class="btn btn-primary" onclick="">삭제</button>
-	        <button type="button" class="btn btn-primary" onclick="">목록</button>               
+	        <button type="button" class="btn btn-primary" id="cbutton" onclick="alert('권한이 없습니다.')">수정</button>
+	        <button type="button" class="btn btn-primary" id="dbutton" onclick="alert('권한이 없습니다.')">삭제</button>
+	        <button type="button" class="btn btn-primary" onclick = "location.href ='${pageContext.request.contextPath}/boardlist.do'">목록</button>               
        	</p>
-
+       	<c:if test="${!empty id}">
+	       	<c:forEach var="data" items="${boardlist}">
+				<c:if test="${id == data.writer}">
+				   	<script>
+					   	const cbutton = document.getElementById("cbutton");
+					   	const dbutton = document.getElementById("dbutton");
+					   	let boardno = ${board.boardno};
+						cbutton.setAttribute("onclick","location.href ='${pageContext.request.contextPath}/changeboard.do?boardno="+boardno+"'");
+						dbutton.setAttribute("onclick","location.href ='${pageContext.request.contextPath}/deleteboard.do?boardno="+boardno+"'");
+			    	</script>
+			    </c:if>
+		    </c:forEach>
+	    </c:if>
 	</div>
-	<br>
+	<br> 	
 	<br>
 	<br>
 	<br>
