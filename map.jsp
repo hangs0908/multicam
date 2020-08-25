@@ -62,7 +62,8 @@
 	      google.maps.event.addListener(marker, 'click', (function(marker, i) {
 	           let page = locations[i][3];
 	           return function() {
-	             window.location.href = page; 
+			   window.open(page, "_blank")
+	             	   //window.location.href = page; 
 	           }
 	         })(marker, i));
 	    }
