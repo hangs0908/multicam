@@ -1,0 +1,19 @@
+
+insert into book(bookkey,libname,managecode,title,author,publisher,pubyear) values (1,'강동도서관','MB','해리포터 아즈카반의 죄수', 'J.K. 롤링', '문학수첩', '2001');
+insert into book(bookkey,libname,managecode,title,author,publisher,pubyear) values (20,'강남도서관','MA','반지의제왕 1', 'J.K. 롤링', '문학수첩', '2001');
+insert into book(bookkey,libname,managecode,title,author,publisher,pubyear) values (123,'강서도서관','MC','반지의 제왕 2', 'J.K. 롤링', '문학수첩', '2001');
+insert into book(bookkey,libname,managecode,title,author,publisher,pubyear) values (4513,'개포도서관','MD','반지의 제왕 3', 'J.K. 롤링', '문학수첩', '2001');
+insert into book(bookkey,libname,managecode,title,author,publisher,pubyear) values (5123,'고덕평학습관','ME','해리포터 비밀의 방', 'J.K. 롤링', '문학수첩', '2001');
+insert into book(bookkey,libname,managecode,title,author,publisher,pubyear) values (3727,'종로도서관','MU','해리포터 불사조 기사단', 'J.K. 롤링', '문학수첩', '2001');
+insert into book(bookkey,libname,managecode,title,author,publisher,pubyear) values (39675,'정독도서관','MT','해리포터 혼혈왕자', 'J.K. 롤링', '문학수첩', '2001');
+insert into book(bookkey,libname,managecode,title,author,publisher,pubyear) values (41244,'용산도서관','MS','해리포터 마법사의 돌', 'J.K. 롤링', '문학수첩', '2001');
+insert into book(bookkey,libname,managecode,title,author,publisher,pubyear) values (44232,'어린이도서관','MQ','나니아 연대기 1', 'C.S. 루이스', '문학수첩', '2001');
+insert into book(bookkey,libname,managecode,title,author,publisher,pubyear) values (2144,'도봉도서관','MJ','나니아 연대기 2', 'C.S. 루이스', '문학수첩', '2001');
+insert into book(bookkey,libname,managecode,title,author,publisher,pubyear) values (9784,'동대문도서관','MK','나니아 연대기 3', 'C.S. 루이스', '문학수첩', '2001');
+insert into book(bookkey,libname,managecode,title,author,publisher,pubyear) values (3343,'종로도서관','MU','나니아 연대기 1', 'C.S. 루이스', '문학수첩', '2001');
+insert into book(bookkey,libname,managecode,title,author,publisher,pubyear) values (4322,'강남도서관','MC','나니아 연대기 1', 'C.S. 루이스', '문학수첩', '2001');
+insert into book(bookkey,libname,managecode,title,author,publisher,pubyear) values (3301,'개포도서관','MD','나니아 연대기 1', 'C.S. 루이스', '문학수첩', '2001');
+insert into book(bookkey,libname,managecode,title,author,publisher,pubyear) values (1023,'용산도서관','MS','반지의 제왕 2', 'J.K. 롤링', '문학수첩', '2001');
+insert into book(bookkey,libname,managecode,title,author,publisher,pubyear) values (4013,'정독도서관','MT','반지의 제왕 3', 'J.K. 롤링', '문학수첩', '2001');
+
+
