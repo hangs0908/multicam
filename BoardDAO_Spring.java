@@ -1,92 +1,96 @@
-package controller;
+package biz.board.dao;
 
-import java.util.ArrayList;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
-import biz.board.service.BoardService;
 import biz.board.vo.BoardVO;
 
-@Controller
-public class BoardController {
-	
+@Component("boardspring")
+public class BoardDAO_Spring implements BoardDAO{
+
 	@Autowired
-	BoardService service;
+	JdbcTemplate template ;
 	
-	@RequestMapping(value = "/viewboard.do", method = RequestMethod.GET)
-	public String viewboard(@RequestParam("boardno") int boardno, @RequestParam("boardcount") int boardcount,
-						HttpServletRequest req) {
-		BoardVO vo = service.getBoard(boardno);
-		List<BoardVO> list = new ArrayList();
-		list.add(vo);
-		req.setAttribute("boardlist", list);
-		req.setAttribute("board", vo);
-		req.setAttribute("boardcount", boardcount);
-		return "book/board_view";
+	@Override
+	public int addBoard(BoardVO board) throws Exception {
+		String sql = 
+				"insert into board (boardno, title, content, writer, viewcount) "+
+						" values ((select nvl(max(boardno),0)+1 from board),?, ?, ?, 0)";
+				
+				return template.update(sql,
+						               board.getTitle(),
+						               board.getContent(),
+						               board.getWriter()
+						               );
 	}
-	
-	@RequestMapping(value = "/writeboard.do", method = RequestMethod.GET)
-	public String writeboard() {
-		return "book/board_write";
+
+	@Override
+	public List<BoardVO> getBoardList() {
+		System.out.println("Spring DAO ...");
+		 String sql = "select * from board order by boarddate desc";
+		return template.query(sql, new BoardRowMapper());
 	}
-	
-	@RequestMapping(value = "/writeboard.do", method = RequestMethod.POST)
-	public String writeboardProc(@RequestParam("title") String title, 
-			@RequestParam("content") String content, HttpServletRequest req,
-			@RequestParam(value = "boardno", required = false, defaultValue="0") int boardno) throws Exception {
+
+	@Override
+	public int updateBoard(BoardVO board) {
+		String sql = "update board set title=?,content=?"
+		 		+ " where  boardno  = ? ";
+
+		 return template.update(sql,
+				                board.getTitle(),
+				                board.getContent(),
+				                board.getBoardno()
+	               );	
+	}
+
+	@Override
+	public int removeBoard(int boardno) {
+		String sql = "delete from board where  boardno  = ? ";
+		return template.update(sql,boardno);
+	}
+
+	@Override
+	public List<BoardVO> searchBoard(String condition, String keyword) {
+		String sql = "select * from board where upper("+ condition+") like  '%'||?||'%'";
+		
+		List<BoardVO> list =template.query(sql,
+	              new Object[]{keyword.toUpperCase()},
+	              new BoardRowMapper());
+		
+		System.out.println("----- "+list);
+		return list;
+	}
+
+	@Override
+	public BoardVO getBoard(int boardno) {
+		String sql2 = "update board set viewcount=(select viewcount+1 from board where boardno="+boardno
+			 		+ ") where boardno="+boardno;
+		template.update(sql2);
+		String sql = "select * from board where boardno = ?";
+		BoardVO vo = null;
+		 vo = template.queryForObject(sql, 
+                                     new Object[] {boardno} ,
+                                     new BoardRowMapper());
+		 return vo;
+	}
+}
+
+class BoardRowMapper implements RowMapper<BoardVO>{
+	@Override
+	public BoardVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 		BoardVO vo = new BoardVO();
-		if(boardno==0) {
-			HttpSession session = req.getSession();
-			String writer = (String)session.getAttribute("id");
-			vo.setWriter(writer);
-			vo.setContent(content);
-			vo.setTitle(title);
-			service.addBoard(vo);
-		}
-		else {
-			vo.setBoardno(boardno);
-			vo.setContent(content);
-			vo.setTitle(title);
-			System.out.println(vo);
-			service.updateBoard(vo);
-		}
-		return "redirect:/boardlist.do";
-	}
-	
-	@RequestMapping(value = "/boardlist.do", method = RequestMethod.GET)
-	public ModelAndView list() {
-		ModelAndView mav = new ModelAndView();
-		List<BoardVO> list = service.getBoardList();
-		int length = list.size();
-		mav.addObject("boardlist",list);
-		mav.addObject("length", length);
-		mav.setViewName("book/board_list");
-		return mav;
-	}
-	
-	@RequestMapping(value = "/changeboard.do", method = RequestMethod.GET)
-	public String changeboard(@RequestParam("boardno") int boardno, @RequestParam("title") String title, 
-			@RequestParam("content") String content, HttpServletRequest req) {
-		req.setAttribute("boardno", boardno);
-		req.setAttribute("title", title);
-		req.setAttribute("content", content);
-		System.out.println(boardno);
-		System.out.println(title);
-		System.out.println(content);
-		return "book/board_write";
-	}
-	@RequestMapping(value = "/deleteboard.do", method = RequestMethod.GET)
-	public String deleteboard(@RequestParam("boardno") int boardno) {
-		service.removeBoard(boardno);
-		return "redirect:/boardlist.do";
+		vo.setBoardno(rs.getInt("boardno"));
+		vo.setContent(rs.getString("content"));
+		vo.setBoarddate(rs.getDate("boarddate").toString());
+		vo.setTitle(rs.getString("title"));
+		vo.setViewcount(rs.getInt("viewcount"));
+		vo.setWriter(rs.getString("writer"));
+		return vo;
 	}
 }
