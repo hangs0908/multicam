@@ -30,12 +30,12 @@ public class BoardController {
 		list.add(vo);
 		req.setAttribute("boardlist", list);
 		req.setAttribute("board", vo);
-		return "book/review_read";
+		return "book/board_view";
 	}
 	
 	@RequestMapping(value = "/writeboard.do", method = RequestMethod.GET)
 	public String writeboard() {
-		return "book/review_write";
+		return "book/board_write";
 	}
 	
 	@RequestMapping(value = "/writeboard.do", method = RequestMethod.POST)
@@ -65,16 +65,20 @@ public class BoardController {
 	public ModelAndView list() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("boardlist",service.getBoardList());
-		mav.setViewName("book/review");
+		mav.setViewName("book/board_list");
 		return mav;
 	}
 	
 	@RequestMapping(value = "/changeboard.do", method = RequestMethod.GET)
-	public String changeboard(@RequestParam("boardno") int boardno,
-		HttpServletRequest req) {
-		BoardVO vo =service.getBoard(boardno);
-		req.setAttribute("board", vo);
-		return "book/review_write";
+	public String changeboard(@RequestParam("boardno") int boardno, @RequestParam("title") String title, 
+			@RequestParam("content") String content, HttpServletRequest req) {
+		req.setAttribute("boardno", boardno);
+		req.setAttribute("title", title);
+		req.setAttribute("content", content);
+		System.out.println(boardno);
+		System.out.println(title);
+		System.out.println(content);
+		return "book/board_write";
 	}
 	@RequestMapping(value = "/deleteboard.do", method = RequestMethod.GET)
 	public String deleteboard(@RequestParam("boardno") int boardno) {
