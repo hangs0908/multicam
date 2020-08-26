@@ -37,7 +37,7 @@
 		<br>
 		<br>
 		<br>
-	   	<h2 class="text-black text-center"><strong>리뷰 작성</strong></h2>
+	   	<h2 class="text-black text-center"><strong>게시글 작성</strong></h2>
 
 	   	<form class="form-horizontal" id="writeform" name="writeform" method="post" action="${pageContext.request.contextPath}/writeboard.do">
 	    	<input type ="hidden" id="boardno" name="boardno" value="${boardno}"/>
