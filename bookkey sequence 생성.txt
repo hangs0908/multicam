@@ -1,0 +1,6 @@
+create sequence seq_bookkey
+    START WITH  1
+    INCREMENT BY 1
+    MAXVALUE 10000
+    MINVALUE 1
+    NOCYCLE;
