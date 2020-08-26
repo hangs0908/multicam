@@ -16,7 +16,7 @@
             </div>
             <br>
             <div class="col-md-10 col-lg-10 cl-xl-9 mx-auto">
-            	<form name="searchform" method="post" action="${pageContext.request.contextPath}/book.do">
+            	<form name="searchform" method="post" action="${pageContext.request.contextPath}/board.do">
 	                <div class="form-row">
                   		<div class="col-md-20 col-md-2">
                       		<select id="searchOption1" name="searchOption1"  class="form-control form-control-lg" aria-controls="dataTable">
