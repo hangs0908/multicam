@@ -21,21 +21,28 @@
 	                <div class="form-row">
                   		<div class="col-md-20 col-md-2">
                       		<select id="searchOption1"  class="form-control form-control-lg" aria-controls="dataTable">
-		                  		<option value="gannam">강남구</option>
-								<option value="contents">강동구</option>
-								<option value="contents">강서구</option>
-								<option value="contents">구로구</option>
-								<option value="contents">노원구</option>
-								<option value="contents">동대문구</option>
-								<option value="contents">도봉구</option>
-								<option value="contents">동작구</option>
-								<option value="contents">마포구</option>
-								<option value="contents">서대문구</option>
-								<option value="contents">송파구</option>
-								<option value="contents">영등포구</option>
-								<option value="contents">용산구</option>
-								<option value="contents">양천구</option>
-								<option value="contents">종로구</option>
+		                  		<option value="contents">강남도서관</option>
+								<option value="contents">강동도서관</option>
+								<option value="contents">강서도서관</option>
+								<option value="contents">개포도서관</option>
+								<option value="contents">고덕평생학습관</option>
+								<option value="contents">고척도서관</option>
+								<option value="contents">구로도서관</option>
+								<option value="contents">남산도서관</option>
+								<option value="contents">노원평생학습관</option>
+								<option value="contents">도봉도서관</option>
+								<option value="contents">동대문도서관</option>
+								<option value="contents">동작도서관</option>
+								<option value="contents">마포평생아현분관</option>
+								<option value="contents">마포평생학습관</option>
+								<option value="contents">서대문도서관</option>
+								<option value="contents">송파도서관</option>
+								<option value="contents">양천도서관</option>
+								<option value="contents">어린이도서관</option>
+								<option value="contents">영등포평생학습관</option>
+								<option value="contents">용산도서관</option>
+								<option value="contents">정독도서관</option>
+								<option value="contents">종로도서관</option>
 	                   		</select>
 	                	</div>
                      	<div class="col-md-20 col-md-2">
@@ -123,10 +130,6 @@
 function bookSearch() {
 	searchform.submit();
 }
-
 </script>
 </body>
 </html>   
-   
-   
-    
