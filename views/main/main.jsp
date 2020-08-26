@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@include file="/WEB-INF/views/common/header.jsp"%>  
+<html>
+<head>
+	<%@include file="/WEB-INF/views/common/header.jsp"%>  
+</head>
+
 <body>
 	<!-- Navigation -->
 	<%@include file="/WEB-INF/views/common/navbar.jsp"%> 
@@ -16,7 +20,7 @@
             </div>
             <br>
             <div class="col-md-10 col-lg-10 cl-xl-9 mx-auto">
-            	<form name="searchform" method="post" action="${pageContext.request.contextPath}/board.do">
+            	<form name="searchform" method="post" action="${pageContext.request.contextPath}/book.do">
 	                <div class="form-row">
                   		<div class="col-md-20 col-md-2">
                       		<select id="searchOption1" name="searchOption1"  class="form-control form-control-lg" aria-controls="dataTable">
@@ -51,7 +55,6 @@
 	                           	<option value="author">저자</option>
                         	</select>
                     	</div>
-                    	</div>
                         <div class="col-md-20 col-md-6">
                         	<!-- 엔터키 방지 -->
                            	<input hidden="hidden"/> 
@@ -62,11 +65,12 @@
                             	<img class="mb-2" src="${pageContext.request.contextPath}/resources/img/search.png" alt="" width="20" height="20">  
                             </button>
                        	</div>
-           			</div>
-               	</form>
-       		</div>
+                    </div>
+              	</form>
+           	</div>
        	</div>
-   	</div>
+    </div>
+   	
    	</header>
    	<br>
    	<br>
@@ -94,29 +98,30 @@
 	                </tbody>                                
            		</table> 
        		</div>
-          	<div class="col-md-8">
-           		<h4><strong>베스트셀러 (Best5)</strong></h4>
-	            <table class="table table-hover">
-	            	<thead>
-	              		<tr>
-	                  		<td width="150px" height="180px">1</td>
-		                  	<td width="150px" height="180px">2</td>
-		                  	<td width="150px" height="180px">3</td>
-		                  	<td width="150px" height="180px">4</td>
-		                  	<td width="150px" height="180px">5</td>
-		               </tr>
-	               </thead>
-	               <tbody>
-		               <tr>
-		                  	<td>1</td>
-		                  	<td>2</td>
-		                  	<td>3</td>
-		                  	<td>4</td>
-		                 	<td>5</td>
-		               </tr>
-	               </tbody>               
-	            </table>
-       		</div>
+       		<div class="col-md-8">
+       			<h4>
+       				<strong>베스트셀러 (Best5)</strong>
+				</h4>
+				<table class="table table-bordered">
+					<tr>
+						<td><img class="i"
+							src="${pageContext.request.contextPath}/resources/img/best1.jpg"
+							alt="" width="100" height="150"><br><br><h6><strong>돈의 속성</strong></h6></td>
+						<td><img class="i"
+							src="${pageContext.request.contextPath}/resources/img/best2.jpeg"
+							alt="" width="100" height="150"><br><br><h6><strong>검찰개혁과 촛불시민</strong></h6></td>
+						<td><img class="i"
+							src="${pageContext.request.contextPath}/resources/img/best3.jpeg"
+							alt="" width="100" height="150"><br><br><h6><strong>부의 대이동</strong></h6></td>
+						<td><img class="i"
+							src="${pageContext.request.contextPath}/resources/img/best4.jpg"
+							alt="" width="100" height="150"><br><br><h6><strong>이토록 공부가 재미있어지는 순간</strong></h6></td>
+						<td><img class="i"
+							src="${pageContext.request.contextPath}/resources/img/best5.jpeg"
+							alt="" width="100" height="150"><br><br><h6><strong>설민석의 세계사 대모험 6</strong></h6></td>
+					</tr>
+				</table>
+			</div>
 		</div>
   	</div>      
 	<br>
