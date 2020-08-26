@@ -25,7 +25,7 @@ public class UserDAO_Spring implements UserDAO{
 		 try {
 		     vo = template.queryForObject(sql, new Object[] {id,pw} ,new UserRowMapper());
 		 }catch (Exception e) {
-		 
+			 
 		 }
 		 return vo;
 	}
@@ -50,11 +50,14 @@ public class UserDAO_Spring implements UserDAO{
 	public UserVO getUser(String userid) {
 		 String sql = "select * from userinfo where userid = ?";
          UserVO vo = null;
-		 vo = template.queryForObject(sql, 
+		 try {
+         vo = template.queryForObject(sql, 
                                       new Object[] {userid} ,
                                       new UserRowMapper());
-		 
-		 return vo;
+         return vo;
+		 }catch(Exception e){
+			 return null;
+		 }
 	}
 
 	@Override
@@ -126,12 +129,9 @@ class UserRowMapper implements RowMapper<UserVO>{
 		vo.setUsername(rs.getString("username"));
 		vo.setUserpwd(rs.getString("userpwd"));
 		vo.setUserdate(rs.getDate("userdate").toString());
-		System.out.println(vo);
 		return vo;
 	}
 }
-
-
 
 
 
