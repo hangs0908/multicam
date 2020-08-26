@@ -11,6 +11,6 @@ insert into userinfo (userid, username, userpwd, email, phone, address) values (
 insert into userinfo (userid, username, userpwd, email, phone, address) values ('dfewww22', '패션왕', 'yumyum1!', 'king@yahoo.com', '010-3425-4232' ,'서울시 강서구');
 insert into userinfo (userid, username, userpwd, email, phone, address) values ('hanana8944', 'S2러브천사S2','sjssjs9*', 'angel@naver.com', '010-5252-2221' ,'부산 서면');
 insert into userinfo (userid, username, userpwd, email, phone, address) values ('coding554', 'zl존코딩', 'nyo@3322','coder@naver.com', '010-6875-3423' ,'서울 동작구');
-
+insert into userinfo (userid, username, userpwd, email, phone, address) values ('pizzalover0101', '치킨나라피자공주', 'pilot3#', 'pizza@naver.com', '010-5555-1111' ,'부산 서면');
 
 
