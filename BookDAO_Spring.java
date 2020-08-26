@@ -2,6 +2,7 @@ package biz.book.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,16 +38,24 @@ public class BookDAO_Spring implements BookDAO{
 	public List<BookVO> getBookList(String libName, String title) {
 		System.out.println("SpringDAO...");
 		String sql = "select * from book where upper(title) like '%'||?||'%' and libname = ?";
-		List<BookVO> list = template.query(sql, new Object[] {title.toUpperCase(),libName}, new BookRawMapper());
+		List<BookVO> list = new ArrayList<BookVO>();
+		try {
+			list = template.query(sql, new Object[] {title.toUpperCase(),libName}, new BookRawMapper());
+		} catch (Exception e) {
+			
+		}
 		return list;
-		
 	}
 
 	@Override
 	public List<BookVO> getBookList2(String libName, String author) {
 		System.out.println("SpringDAO...");
 		String sql = "select * from book where upper(author) like  '%'||?||'%' and libname = ?";
-		List<BookVO> list = template.query(sql, new Object[] {author.toUpperCase(),libName}, new BookRawMapper());
+		List<BookVO> list = new ArrayList<BookVO>();
+		try {
+			list = template.query(sql, new Object[] {author.toUpperCase(),libName}, new BookRawMapper());
+		} catch (Exception e) {
+		}
 		return list;
 	}
 	
@@ -54,7 +63,11 @@ public class BookDAO_Spring implements BookDAO{
 	public List<BookVO> getBookList3(String libName, String publisher) {
 		System.out.println("SpringDAO...");
 		String sql = "select * from book where upper(publisher) like  '%'||?||'%' and libname = ?";
-		List<BookVO> list = template.query(sql, new Object[] {publisher.toUpperCase(), libName}, new BookRawMapper());
+		List<BookVO> list = new ArrayList<BookVO>();
+		try {
+			list = template.query(sql, new Object[] {publisher.toUpperCase(), libName}, new BookRawMapper());
+		} catch (Exception e) {
+		}
 		return list;
 	}
 	
@@ -64,8 +77,11 @@ public class BookDAO_Spring implements BookDAO{
 	public List<BookVO> bookViewList() {
 		System.out.println("SpringDAO...");
 		String sql = "select * from (select * from book order by viewcount desc) where rownum <= 3";
-		List<BookVO> list = template.query(sql, new BookRawMapper());
-		System.out.println("list " + list);
+		List<BookVO> list = new ArrayList<BookVO>();
+		try {
+			list = template.query(sql, new BookRawMapper());
+		} catch (Exception e) {
+		}
 		
 		return list;
 		
