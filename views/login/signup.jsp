@@ -136,16 +136,12 @@
 		if(emailCheck.test($("#email").val()) == false) {
 			$("#emailCheck").text("email형식에 맞지 않습니다.");
 			$("#emailCheck").css("color", "red");
-			$(".btn-block").attr("disabled", true);
 			
 		} else {
 			$("#emailCheck").text("");
-			$(".btn-block").attr("disabled", false);
 		}
 	})
 
 	
 </script>
 </html>
-
-
