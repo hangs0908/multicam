@@ -25,28 +25,41 @@
 	    <br>
 	    <br>
 	  
-	     <table class="table table-hover" style="table-layout: fixed">
-	    	<thead >
-		    	<tr>
-		           <th>번호</th>
-		           <th style="width:50%;  text-overflow:ellipsis; overflow:hidden; white-space:nowrap;">제목</th>
-		           <th>작성자</th>
-		           <th>작성일</th>
-		           <th>조회수</th>
-		        </tr>
-			</thead>
-	        <tbody>
-		        <c:forEach var="data" items="${boardlist}" varStatus="status">
-		        <tr>
-		           <td>${length-status.index}</td>
-		           <td style="width:50%;  text-overflow:ellipsis; overflow:hidden; white-space:nowrap;"><a href="viewboard.do?boardno=${data.boardno}&boardcount=${length-status.index}">${data.title}</a></td>
-		           <td>${data.writer}</td>
-		           <td>${data.boarddate}</td>
-		           <td>${data.viewcount}</td>
-		        </tr>
-		        </c:forEach>
-	        </tbody>
-	     </table>
+	   <div id="layoutSidenav_content">
+        	<main>
+            	<div class="container-fluid">
+                	<div class="card mb-4">
+                    	<div class="card-header"> <i class="fas fa-table mr-1"></i><strong>게시글 목록 </strong></div>
+                       	<div class="card-body">
+                        	<div class="table-responsive">
+                            	<table class="table table-bordered table-hover" style="table-layout: fixed" id="dataTable" width="100%" cellspacing="0" >
+	                                <thead >
+								    	<tr>
+								           <th>번호</th>
+								           <th style="width:50%;  text-overflow:ellipsis; overflow:hidden; white-space:nowrap;">제목</th>
+								           <th>작성자</th>
+								           <th>작성일</th>
+								           <th>조회수</th>
+								        </tr>
+									</thead>
+							        <tbody>
+								        <c:forEach var="data" items="${boardlist}" varStatus="status">
+								        <tr>
+								           <td>${length-status.index}</td>
+								           <td style="width:50%;  text-overflow:ellipsis; overflow:hidden; white-space:nowrap;"><a href="viewboard.do?boardno=${data.boardno}&boardcount=${length-status.index}">${data.title}</a></td>
+								           <td>${data.writer}</td>
+								           <td>${data.boarddate}</td>
+								           <td>${data.viewcount}</td>
+								        </tr>
+								        </c:forEach>
+							        </tbody>
+                              	</table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          	</main>
+		</div>
 	</div>
 
 	<%@include file="/WEB-INF/views/common/footer.jsp"%>   
