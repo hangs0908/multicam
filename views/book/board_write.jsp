@@ -15,11 +15,15 @@
       });
       $('#content').keyup();
    });
-
    function brr(){
       var str = document.getElementById("content").value;
-      str = str.replace(/(?:\r\n|\r|\n)/g, '<br/>');
-      document.getElementById("content").value = str;
+      str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
+      document.getElementById("content2").value = str;
+   }
+   function rrb(){
+	   var str = '${content}';
+	   str = str.replace(/(<br>|<br\/>|<br \/>)/g, '\r\n');
+	   document.getElementById("content").value= str;
    }
 </script>
 <body>
@@ -34,14 +38,23 @@
 
 	   	<form class="form-horizontal" id="writeform" name="writeform" method="post" action="${pageContext.request.contextPath}/writeboard.do">
 	    	<input type ="hidden" id="boardno" name="boardno" value="${boardno}"/>
+	    	<input type ="hidden" id="content2" name="content2" value="">
 	    	<div>
 	        	<label><strong>제목</strong></label>
 	            <input type="text" maxlength="50" class="form-control" id="title" name="title" value="${title}">
 	         </div>
 	         <div>
 	            <label><strong>내용</strong></label>
-	            <textarea maxlength="2000" class="form-control" id="content" name="content" rows="10">${content}</textarea>
-	            <span id="counter">###</span>
+	            <c:if test="${empty content}">
+	            <textarea maxlength="2000" class="form-control" id="content" name="content" rows="10"></textarea>
+	            </c:if>
+	            <c:if test="${!empty content}">
+	            <textarea maxlength="2000" class="form-control" id="content" name="content" rows="10"></textarea>
+	            <script>
+	            	rrb();
+	            </script>
+	            </c:if>
+	            <span id="counter">	</span>
 	         </div>
 	         <br>
 			<p align = "right">
@@ -54,8 +67,4 @@
 	<br>
 	<br>
 	<br>
-   <%@include file="/WEB-INF/views/common/footer.jsp"%>   
-   
-   
-   
-   
+   <%@include file="/WEB-INF/views/common/footer.jsp"%>  
