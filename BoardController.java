@@ -41,20 +41,20 @@ public class BoardController {
 	
 	@RequestMapping(value = "/writeboard.do", method = RequestMethod.POST)
 	public String writeboardProc(@RequestParam("title") String title, 
-			@RequestParam("content") String content, HttpServletRequest req,
+			@RequestParam("content2") String content2, HttpServletRequest req,
 			@RequestParam(value = "boardno", required = false, defaultValue="0") int boardno) throws Exception {
 		BoardVO vo = new BoardVO();
 		if(boardno==0) {
 			HttpSession session = req.getSession();
 			String writer = (String)session.getAttribute("id");
 			vo.setWriter(writer);
-			vo.setContent(content);
+			vo.setContent(content2);
 			vo.setTitle(title);
 			service.addBoard(vo);
 		}
 		else {
 			vo.setBoardno(boardno);
-			vo.setContent(content);
+			vo.setContent(content2);
 			vo.setTitle(title);
 			System.out.println(vo);
 			service.updateBoard(vo);
@@ -79,9 +79,6 @@ public class BoardController {
 		req.setAttribute("boardno", boardno);
 		req.setAttribute("title", title);
 		req.setAttribute("content", content);
-		System.out.println(boardno);
-		System.out.println(title);
-		System.out.println(content);
 		return "book/board_write";
 	}
 	@RequestMapping(value = "/deleteboard.do", method = RequestMethod.GET)
