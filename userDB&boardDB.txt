@@ -13,7 +13,7 @@ create table board
 (
     boardno   number(10) primary key,
     title     varchar2(200)  not null,
-    content   varchar2(6000) not null,
+    content   varchar2(4000) not null,
     writer varchar2(15) references userinfo(userid),
     boarddate date   default sysdate,
     viewcount   number(10) default 0
