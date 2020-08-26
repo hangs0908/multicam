@@ -61,6 +61,23 @@
           	</main>
 		</div>
 	</div>
+	
+	<!-- dataTable 기능 제거 및 위치-->
+	<script>
+		$("#dataTable").DataTable({   
+	   
+	   		dom : "<'row'<'col-sm-2'l><'col-sm-7'><'col-sm-3'f>>" +
+	   			"<'row'<'col-sm-12'tr>>" +
+	   			"<'row'<'col-sm-12 col-md-8'p>>",
+	   		 "language":{
+	   		   "url": "//cdn.datatables.net/plug-ins/1.10.9/i18n/Korean.json"
+	   		 },
+			"bFilter": false
+		});   
+	</script>  
+
+
+
 
 	<%@include file="/WEB-INF/views/common/footer.jsp"%>   
 </body>
