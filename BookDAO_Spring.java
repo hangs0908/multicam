@@ -19,55 +19,56 @@ public class BookDAO_Spring implements BookDAO{
 	JdbcTemplate template;
 
 	@Override
-	public BookVO getBook(String title) {
-		String sql2 = "update book set viewcount=(select viewcount+1 from book where title="+title
-		 		+ ") where title="+title;
+	public BookVO getBook(int bookKey) {
+		String sql2 = "update book set viewcount=(select viewcount+1 from book where bookkey="+bookKey
+		 		+ ") where bookKey="+bookKey;
 		template.update(sql2);
 		
-		String sql = "select * from book where title = ?";
+		String sql = "select * from book where bookkey = ?";
 		BookVO vo = null;
 		 vo = template.queryForObject(sql, 
-                                     new Object[] {title} ,
+                                     new Object[] {bookKey} ,
                                      new BookRawMapper());
 		
 		 return vo;
 	}
 
 	@Override
-	public List<BookVO> getBookList(String title) {
+	public List<BookVO> getBookList(String libName, String title) {
 		System.out.println("SpringDAO...");
-		String sql = "select * from book where title = ?";
-		List<BookVO> list = template.query(sql, new Object[] {title}, new BookRawMapper());
+		String sql = "select * from book where upper(title) like '%'||?||'%' and libname = ?";
+		List<BookVO> list = template.query(sql, new Object[] {title.toUpperCase(),libName}, new BookRawMapper());
 		return list;
 		
 	}
 
 	@Override
-	public List<BookVO> getBookList2(String author) {
+	public List<BookVO> getBookList2(String libName, String author) {
 		System.out.println("SpringDAO...");
-		String sql = "select * from book where author = ?";
-		List<BookVO> list = template.query(sql, new Object[] {author}, new BookRawMapper());
+		String sql = "select * from book where upper(author) like  '%'||?||'%' and libname = ?";
+		List<BookVO> list = template.query(sql, new Object[] {author.toUpperCase(),libName}, new BookRawMapper());
 		return list;
 	}
 	
 	@Override
-	public List<BookVO> getBookList3(String publisher) {
+	public List<BookVO> getBookList3(String libName, String publisher) {
 		System.out.println("SpringDAO...");
-		String sql = "select * from book where publisher = ?";
-		List<BookVO> list = template.query(sql, new Object[] {publisher}, new BookRawMapper());
+		String sql = "select * from book where upper(publisher) like  '%'||?||'%' and libname = ?";
+		List<BookVO> list = template.query(sql, new Object[] {publisher.toUpperCase(), libName}, new BookRawMapper());
 		return list;
 	}
+	
+	
 
 	@Override
 	public List<BookVO> bookViewList() {
 		System.out.println("SpringDAO...");
 		String sql = "select * from (select * from book order by viewcount desc) where rownum <= 3";
-		String sql2 = "select * from book";
 		List<BookVO> list = template.query(sql, new BookRawMapper());
-		List<BookVO> list2 = template.query(sql2, new BookRawMapper());
 		System.out.println("list " + list);
-		System.out.println("list2 " + list2);
+		
 		return list;
+		
 		
 	}
 	

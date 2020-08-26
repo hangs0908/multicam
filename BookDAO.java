@@ -5,9 +5,9 @@ import java.util.List;
 import biz.book.vo.BookVO;
 
 public interface BookDAO {
-		BookVO getBook (String title);
-	   List<BookVO> getBookList(String title);
-	   List<BookVO> getBookList2(String author);
-	   List<BookVO> getBookList3(String publisher);
+		BookVO getBook (int bookKey);
+	   List<BookVO> getBookList(String libName, String title);
+	   List<BookVO> getBookList2(String libName, String author);
+	   List<BookVO> getBookList3(String libName, String publisher);
 	   List<BookVO> bookViewList();
 }
