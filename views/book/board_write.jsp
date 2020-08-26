@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<html>
+<head>
 <%@include file="/WEB-INF/views/common/header.jsp"%> 
 <script>
    function cancel() {
@@ -26,6 +28,7 @@
 	   document.getElementById("content").value= str;
    }
 </script>
+</head>
 <body>
 	<!-- Navigation -->
    	<%@include file="/WEB-INF/views/common/navbar.jsp"%>  
@@ -41,7 +44,7 @@
 	    	<input type ="hidden" id="content2" name="content2" value="">
 	    	<div>
 	        	<label><strong>제목</strong></label>
-	            <input type="text" maxlength="50" class="form-control" id="title" name="title" value="${title}">
+	            <input type="text" maxlength="50" class="form-control" id="title" name="title" value="${title}" onkeydown='javascript_:{ if(event.keyCode==13) event.returnValue=false;}'>
 	         </div>
 	         <div>
 	            <label><strong>내용</strong></label>
@@ -67,4 +70,6 @@
 	<br>
 	<br>
 	<br>
-   <%@include file="/WEB-INF/views/common/footer.jsp"%>  
+   <%@include file="/WEB-INF/views/common/footer.jsp"%> 
+</body>
+</html>
