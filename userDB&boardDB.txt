@@ -9,6 +9,8 @@ create table userinfo (
 );
 
 
+ALTER TABLE board MODIFY (title VARCHAR2(200));
+
 create table board
 (
     boardno   number(10) primary key,
