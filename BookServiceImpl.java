@@ -15,22 +15,22 @@ public class BookServiceImpl implements BookService{
 	BookDAO dao;
 
 	@Override
-	public BookVO getBook(String title) {
-		return dao.getBook(title);
+	public BookVO getBook(int bookKey) {
+		return dao.getBook(bookKey);
 	}
 
 	@Override
-	public List<BookVO> getBookList(String title) {
-		return dao.getBookList(title);
+	public List<BookVO> getBookList(String libName, String title) {
+		return dao.getBookList(libName, title);
 	}
 	@Override
-	public List<BookVO> getBookList2(String author) {
-		return dao.getBookList2(author);
+	public List<BookVO> getBookList2(String libName, String author) {
+		return dao.getBookList2(libName, author);
 	}
 	
 	@Override
-	public List<BookVO> getBookList3(String publisher) {
-		return dao.getBookList3(publisher);
+	public List<BookVO> getBookList3(String libName, String publisher) {
+		return dao.getBookList3(libName, publisher);
 	}
 
 	@Override
