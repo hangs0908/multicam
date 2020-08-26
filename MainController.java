@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import biz.book.service.BookService;
-import sun.print.resources.serviceui_es;
 
 @Controller
 public class MainController {
+	
 	@Autowired
 	BookService service;
 	
@@ -21,6 +21,15 @@ public class MainController {
 		return mav;
 	}
 	
+	@RequestMapping("/about.do")
+	public ModelAndView about() {
+		ModelAndView mav = new ModelAndView();
+		
+		//mav.addObject("msg","Hello Spring MVC");
+		mav.setViewName("/main/about");
+		
+		return mav;
+	}
 	
 	
 	
