@@ -11,7 +11,7 @@
    $(function() {
       $('#content').keyup(function(e) {
          var content = $(this).val();
-         $('#counter').html(content.length + '/2000');
+         $('#counter').html(content.length + '/1000');
       });
       $('#content').keyup();
    });
@@ -46,10 +46,10 @@
 	         <div>
 	            <label><strong>내용</strong></label>
 	            <c:if test="${empty content}">
-	            <textarea maxlength="2000" class="form-control" id="content" name="content" rows="10"></textarea>
+	            <textarea maxlength="1000" class="form-control" id="content" name="content" rows="10"></textarea>
 	            </c:if>
 	            <c:if test="${!empty content}">
-	            <textarea maxlength="2000" class="form-control" id="content" name="content" rows="10"></textarea>
+	            <textarea maxlength="1000" class="form-control" id="content" name="content" rows="10"></textarea>
 	            <script>
 	            	rrb();
 	            </script>
