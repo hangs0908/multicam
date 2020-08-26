@@ -3,11 +3,11 @@ drop table book;
 
 create table book(
     bookkey number primary key,
-    libname varchar2(20) not null,
-    managecode varchar2(5),
-    title varchar2(100),
-    author varchar2(20),
-    publisher varchar2(20),
-    pubyear varchar2(10),
+    libname varchar2(50) not null,
+    managecode varchar2(10),
+    title varchar2(500),
+    author varchar2(100),
+    publisher varchar2(50),
+    pubyear varchar2(20),
     viewcount number default 0
 );
