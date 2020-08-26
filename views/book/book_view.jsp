@@ -19,26 +19,27 @@
 	    <table class="table">
 	    	<tr>
 		        <th width="100px"><strong>번호</strong></th>
-		        <td>1</td>
+		        <td>${book.bookKey}</td>
 		        <th width="100px"><strong>조회수</strong></th>
-		        <td>22</td>
+		        <td>${book.viewcount}</td>
 	       	</tr>
 	        <tr>
 	            <th><strong>제목</strong></th>
-	            <td>제목 나오는 부분</td>
+	            <td>${book.title}</td>
 	            <th><strong>작가</strong></th>
-	            <td>작가 이름 나오는 부분</td>
+	            <td>${book.author}</td>
 	       	</tr>                  
 	       	<tr>
 	            <th><strong>출판사</strong></th>
-	            <td>출판사 나오는 부분</td>
+	            <td>${book.publisher}</td>
 	            <th><strong>출판일</strong></th>
-	            <td>출판일 나오는 부분</td>
-	       	</tr>                
+	            <td>${book.pubYear}</td>
+	       	</tr>                	
 	   	</table>
 	
+		
 		<p align = "right">
-	    <button type="button" class="btn btn-primary" onclick = "location.href ='${pageContext.request.contextPath}/boardlist.do'"><strong>목록</strong></button>               
+	    <button type="button" class="btn btn-primary" onclick = "location.href ='${pageContext.request.contextPath}/board.do'"><strong>목록</strong></button>               
        	</p>
 	</div>
 	<br> 	
