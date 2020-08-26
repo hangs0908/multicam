@@ -6,7 +6,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
     	<a class="navbar-brand" href="${pageContext.request.contextPath}/main/main.do">
-    		<img class="mb-0" src="${pageContext.request.contextPath}/resources/img/typelogo.png" alt="" width="240" height="60">
+    		<img class="mb-0" src="${pageContext.request.contextPath}/resources/img/typelogo.png" alt="" width="160" height="40">
     	</a>
       	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="#navbar" aria-expanded="false" aria-label="Toggle navigation">
         	<span class="navbar-toggler-icon"></span>
