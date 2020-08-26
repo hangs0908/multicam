@@ -33,7 +33,7 @@ public class BoardDAO_Spring implements BoardDAO{
 	@Override
 	public List<BoardVO> getBoardList() {
 		System.out.println("Spring DAO ...");
-		 String sql = "select * from board order by boarddate desc";
+		 String sql = "select * from board order by boardno";
 		return template.query(sql, new BoardRowMapper());
 	}
 
